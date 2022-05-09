@@ -8,12 +8,14 @@ class App extends Component {
   state = {
     contacts: []
   }
+
   componentDidMount() {
     ContactsAPI.getAll().then((contacts) => {
       console.log(contacts)
       this.setState({ contacts })
     })
   }
+  
   removeContact = (contact) => {
     this.setState((state) => ({
       contacts: state.contacts.filter((c) => c.id !== contact.id)
